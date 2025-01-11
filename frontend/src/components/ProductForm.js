@@ -30,7 +30,7 @@ const ProductForm = ({ products, setProducts }) => {
     e.preventDefault();
     if (id === undefined) {
       axios
-        .post("http://localhost:5000/products", formData, {
+        .post(`${process.env.REACT_APP_BACKEND_URL}/products`, formData, {
           headers: { "Content-Type": "application/json" },
         })
         .then((response) => {
@@ -51,7 +51,7 @@ const ProductForm = ({ products, setProducts }) => {
     } else {
       axios
         .post(
-          "http://localhost:5000/product/edit",
+            `${process.env.REACT_APP_BACKEND_URL}/product/edit`,
           { ...formData, recordId },
           {
             headers: { "Content-Type": "application/json" },

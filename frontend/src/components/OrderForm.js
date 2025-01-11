@@ -28,7 +28,7 @@ const OrderForm = ({ products, setProducts }) => {
     };
     console.log("updatedFormData", updatedFormData);
     axios
-      .post("http://localhost:5000/orders", updatedFormData, {
+      .post(`${process.env.REACT_APP_BACKEND_URL}/orders`, updatedFormData, {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {
