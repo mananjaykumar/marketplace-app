@@ -32,7 +32,7 @@ const getRecordID = async (product_id) => {
 // Routes
 
 // Get all products
-app.get("/products", async (req, res) => {
+app.get("/api/products", async (req, res) => {
   try {
     const products = [];
     await base("Products")
@@ -50,7 +50,7 @@ app.get("/products", async (req, res) => {
 });
 
 // Add a new product
-app.post("/products", async (req, res) => {
+app.post("/api/products", async (req, res) => {
   try {
     const { name, description, price, image, email } = req.body;
     const createdProduct = await base("Products").create({
@@ -67,7 +67,7 @@ app.post("/products", async (req, res) => {
 });
 
 // Delete a product
-app.delete("/products/:id", async (req, res) => {
+app.delete("/api/products/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const records = await getRecordID(id);
@@ -79,7 +79,7 @@ app.delete("/products/:id", async (req, res) => {
 });
 
 // Find a product
-app.get("/product/:id", async (req, res) => {
+app.get("/api/product/:id", async (req, res) => {
   const { id } = req.params;
   try {
     const records = await getRecordID(id);
@@ -93,7 +93,7 @@ app.get("/product/:id", async (req, res) => {
 });
 
 // Edit a product
-app.post("/product/edit", async (req, res) => {
+app.post("/api/product/edit", async (req, res) => {
   const { name, description, image, email, price, recordId } = req.body;
   const updatedFields = {
     name,
@@ -116,7 +116,7 @@ app.post("/product/edit", async (req, res) => {
 });
 
 // Place an order
-app.post("/orders", async (req, res) => {
+app.post("/api/orders", async (req, res) => {
   const { product_id, buyer_name, buyer_email } = req.body;
 
   try {
@@ -134,7 +134,7 @@ app.post("/orders", async (req, res) => {
 });
 
 // Get all orders
-app.get("/orders", async (req, res) => {
+app.get("/api/orders", async (req, res) => {
   try {
     const orders = [];
     await base("Orders")
