@@ -1,0 +1,93 @@
+/* Base styles */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.orders-listing {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  color: #4caf50;
+  margin-bottom: 20px;
+  font-size: 2.5em;
+}
+
+/* Orders container */
+.orders-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual order card */
+.order-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: calc(33.333% - 20px);
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.order-card h2 {
+  margin: 0 0 10px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.order-card p {
+  margin: 5px 0;
+  font-size: 1em;
+  color: #666;
+}
+
+.order-card p strong {
+  color: #000;
+}
+
+/* Loading and error states */
+.loading,
+.error {
+  text-align: center;
+  font-size: 1.2em;
+  color: #888;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+.no-orders {
+  text-align: center;
+  font-size: 1.2em;
+  color: #999;
+  margin-top: 20px;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .order-card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .order-card {
+    width: calc(100% - 20px);
+  }
+}
